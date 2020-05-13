@@ -1,0 +1,25 @@
+<h1>{{isNew?"New ":"Edit "}} Order</h1>
+<form id="form" #f="ngForm">
+    <!-- <form id="form" (ngSubmit)="save()" #f="ngForm"></form> -->
+
+    <div>
+        <label>Order Id</label>
+        <input type="number" name="onum" [(ngModel)]="order.orderId"/>
+    </div>
+   
+    <div>
+        <label>Order Date</label>
+        <input type="date" name="od" [(ngModel)]="order.orderDate"/>
+    </div>
+
+    <div>
+        <label>Order Price</label>
+        <input type="text" name="op" [(ngModel)]="order.orderPrice"/>
+    </div>
+    <div>
+        
+        <a href="/list" type="button" (click)="save()" >save</a>
+    </div>
+
+</form>
+

@@ -1,0 +1,37 @@
+<h2>Order List</h2>
+
+<a href="/addOrder">New Order</a>
+<p *ngIf="!orders && !errMsg">Please wait its loading....</p>
+<p *ngIf="errMsg">{{errMsg}}</p>
+<table *ngIf="orders">
+    <thead>
+        <tr>
+        <th>O-Id</th>
+        <th>O-Date</th>
+        <th>O-Price</th>
+        <th>OI-Id</th>
+        <th>P-Id</th>
+        <th>P-Name</th>
+        <th>Desc</th>
+        <th>price</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of orders">
+            <td>{{o.orderId}}</td>
+            <td>{{o.orderDate}}</td>
+            <td>{{o.orderPrice}}</td>
+            <td>{{o.orderItemId}}</td>
+            <td>{{o.productId}}</td>
+            <td>{{o.productName}}</td>
+            <td>{{o.description}}</td>
+            <td>{{o.price}}</td>
+            
+            <td> <a href="/list" (click)="deleteOrder(o.orderId)">Delete</a>
+            <span> | </span>
+            <a href="editOrder/{{o.orderId}}">EDIT</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
